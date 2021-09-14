@@ -91,4 +91,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return database.update(Util.TABLE_NAME, values, Util.KEY_ID + "=?",
                 new String[]{String.valueOf(contact.getId())});
     }
+
+    public int deleteContact(Contact contact) {
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        return database.delete(Util.TABLE_NAME, Util.KEY_ID + "=?",
+                new String[]{String.valueOf(contact.getId())});
+    }
 }
