@@ -25,10 +25,21 @@ public class MainActivity extends AppCompatActivity {
         database.addContact(person1);
         Log.d("addContact", "onCreate: " + "contact added");
 
+        Contact contact = database.getContact(2);
+        Log.d("getContact", "onCreate: " + contact);
+
+
+        Contact contact1 = database.getContact(1);
+        contact1.setName("Eva");
+        contact1.setPhoneNumber("56465465654");
+
+        int updatedRow = database.updateContact(contact);
+        Log.d("update", "onCreate: " + updatedRow);
+
         List<Contact> contactList = database.getAllContacts();
 
         for (Contact item : contactList) {
-            Log.d("addContact", "onCreate: " + item);
+            Log.d("listContacts", "onCreate: " + item);
         }
     }
 }
