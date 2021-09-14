@@ -98,4 +98,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return database.delete(Util.TABLE_NAME, Util.KEY_ID + "=?",
                 new String[]{String.valueOf(contact.getId())});
     }
+
+    public int getCount() {
+        String query = "SELECT * FROM " + Util.TABLE_NAME;
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor cursor = database.rawQuery(query, null);
+        return cursor.getCount();
+    }
 }
